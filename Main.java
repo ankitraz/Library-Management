@@ -4,6 +4,7 @@ class library {
     Scanner scanner = new Scanner(System.in);
     // create an array of string in java
     String[] books = { "ram", "shyam", "hari" };
+    ArrayList<Integer> List  =  new Arraylist
 
     /*
      * void addbook() {
