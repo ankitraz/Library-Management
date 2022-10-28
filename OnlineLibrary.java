@@ -1,15 +1,8 @@
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class OnlineLibrary {
     public static void main(String[] args) {
-//        library l1 = new library();
-//        library.add_book();
-////        System.out.println(library.books);
-////        library.issue_book();
-////        library.return_book();
-//        library.show_books();
         Scanner input = new Scanner(System.in);
         System.out.println("Welcome to Online Library: ");
         System.out.println("---------------------------------");
@@ -32,7 +25,6 @@ public class OnlineLibrary {
             }
         }
     }
-
 }
 
 class library{
@@ -72,9 +64,9 @@ class library{
     static void return_book(){
         System.out.println("Enter the name of the book you want to return: ");
         String returned_book = input.next();
-         for (String i :
+         for (String book :
                 books) {
-            if (returned_book.equals(i)) {
+            if (returned_book.equals(book)) {
                 System.out.println("Book returned successfully!");
             } else System.out.println("Book not found!");
         }
