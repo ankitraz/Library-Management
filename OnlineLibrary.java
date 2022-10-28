@@ -7,6 +7,7 @@ public class OnlineLibrary {
         library.add_book();
 //        System.out.println(library.books);
         library.issue_book();
+        library.return_book();
 
     }
     
@@ -41,6 +42,16 @@ class library{
                 System.out.println("Books issued Successfully.");
                 System.out.println("Book Name : " + book);
             } else System.out.println("Book not found!");
+        }
+    }
+    static void return_book(){
+        System.out.println("Enter the name of the book you want to return: ");
+        String returned_book = input.next();
+         for (String i :
+                books) {
+            if (returned_book.equals(i)) {
+                System.out.println("Book returned successfully!");
+            }
         }
     }
 }
