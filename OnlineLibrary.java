@@ -1,24 +1,50 @@
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class OnlineLibrary {
     public static void main(String[] args) {
-        library l1 = new library();
-        library.add_book();
-//        System.out.println(library.books);
-        library.issue_book();
-        library.return_book();
+//        library l1 = new library();
+//        library.add_book();
+////        System.out.println(library.books);
+////        library.issue_book();
+////        library.return_book();
+//        library.show_books();
+        Scanner input = new Scanner(System.in);
+        System.out.println("Welcome to Online Library: ");
+        System.out.println("---------------------------------");
+        System.out.println("1. Show books");
+        System.out.println("2. Add books");
+        System.out.println("3. Return book");
+        System.out.println("4. Get book");
+        System.out.println("----------------------------------");
+        System.out.println();
+        int choice = input.nextInt();
 
+        switch (choice) {
+            case 1 -> library.show_books();
+            case 2 -> library.add_book();
+            case 3 -> library.return_book();
+            case 4 -> library.issue_book();
+            default -> {
+                System.out.println("Invalid Selection!");
+                main(null);
+            }
+        }
     }
-    
 
 }
 
 class library{
-
     static ArrayList<String> books = new ArrayList<>();
+    static {  // this is known as static initializer
+        books.add("demo1");
+        books.add("demo2");
+        books.add("demo3");
+        books.add("demo4");
+        books.add("demo5");
+    }
     static Scanner input =  new Scanner(System.in);
-
     static void add_book(){
         System.out.println("Enter the no. of books you want to add: ");
         int no_of_books = input.nextInt();
@@ -33,7 +59,6 @@ class library{
     }
 
     static void issue_book(){
-        System.out.println(books);
         System.out.println("Enter the book you want to issue: ");
         String book = input.next();
 
@@ -51,7 +76,14 @@ class library{
                 books) {
             if (returned_book.equals(i)) {
                 System.out.println("Book returned successfully!");
-            }
+            } else System.out.println("Book not found!");
+        }
+    }
+
+    static void show_books(){
+        for (String s :
+                books) {
+            System.out.println(s);
         }
     }
 }
