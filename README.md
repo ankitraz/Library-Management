@@ -1,4 +1,4 @@
 # Library-Management
- clone this repository -> git clone https://github.com/ankitraz/Library-Management.git
+ Clone this repository -> (git clone https://github.com/ankitraz/Library-Management.git)
  
-Changes are welcomed. Just make a pull request.😊
+Suggestions are welcome. Just make a pull request.😊
