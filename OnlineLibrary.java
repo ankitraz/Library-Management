@@ -7,7 +7,7 @@ public class OnlineLibrary {
         System.out.println("Welcome to Online Library: ");
         System.out.println("---------------------------------");
         System.out.println("1. Show books");
-        System.out.println("2. Add books");
+        System.out.println("2. Add books (Admin Only) ");
         System.out.println("3. Return book");
         System.out.println("4. Get book");
         System.out.println("----------------------------------");
@@ -28,6 +28,9 @@ public class OnlineLibrary {
 }
 
 class library{
+
+    final private static String admin = "Ankit";
+    final private static int password = 2308;
     static ArrayList<String> books = new ArrayList<>();
     static {  // this is known as static initializer
         books.add("demo1");
@@ -38,14 +41,33 @@ class library{
     }
     static Scanner input =  new Scanner(System.in);
     static void add_book(){
-        System.out.println("Enter the no. of books you want to add: ");
-        int no_of_books = input.nextInt();
+        int counter = 2;
+        System.out.println("Enter you Name: ");
+        String input_name = input.next();
+        System.out.println("Enter your PIN: ");
+        int input_pin = input.nextInt();
 
-        for (int i = 0; i < no_of_books ; i++) {
-            System.out.print("Book no " + i + ": ");
-            books.add(input.next());
-            if (i == no_of_books-1){
-                System.out.println("Books added successfully!");
+        while (input_pin!= password){
+            System.out.println("Wrong password! Try again. " + counter + " attempts left.");
+            input_pin = input.nextInt();
+            counter--;
+            if (counter == 0){
+                System.out.println("No Attempts left. Exiting...");
+                break;
+            }
+        }
+
+        if (input_pin == password){
+            System.out.println("Welcome " + admin + " !");
+            System.out.println("Enter the no. of books you want to add: ");
+            int no_of_books = input.nextInt();
+
+            for (int i = 0; i < no_of_books ; i++) {
+                System.out.print("Book no " + i + ": ");
+                books.add(input.next());
+                if (i == no_of_books-1){
+                    System.out.println("Books added successfully!");
+                }
             }
         }
     }
